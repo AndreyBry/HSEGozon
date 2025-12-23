@@ -229,10 +229,10 @@ GET /api/orders/{orderId}
 
 ```
 HSEGozon/
-├── frontend/                          # Веб-интерфейс
-│   ├── index.html                    # Главная страница
-│   ├── style.css                     # Стили
-│   └── app.js                         # JavaScript логика
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
 ├── src/
 │   ├── HSEGozon.ApiGateway/
 │   │   ├── Api/
