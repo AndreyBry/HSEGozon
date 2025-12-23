@@ -17,4 +17,5 @@ RUN dotnet publish "HSEGozon.ApiGateway.csproj" -c Release -o /app/publish /p:Us
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY frontend ./wwwroot
 ENTRYPOINT ["dotnet", "HSEGozon.ApiGateway.dll"]

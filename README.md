@@ -79,12 +79,26 @@ docker-compose up -d --build
 
 Система будет доступна по следующим адресам:
 
+- **Веб-интерфейс (Frontend)**: http://localhost:5000
 - **API Gateway**: http://localhost:5000
 - **Orders Service**: http://localhost:5002
 - **Payments Service**: http://localhost:5001
 - **RabbitMQ Management**: http://localhost:15672 (guest/guest)
 - **PostgreSQL Orders**: localhost:5434
 - **PostgreSQL Payments**: localhost:5433
+
+### Веб-интерфейс
+
+После запуска доступен веб-интерфейс для работы с системой:
+
+- **Главная страница**: http://localhost:5000
+
+Веб-интерфейс предоставляет возможность:
+- Создания и управления счетами пользователей
+- Пополнения счетов
+- Просмотра баланса
+- Создания заказов
+- Просмотра списка заказов и их статусов
 
 ### Swagger документация
 
@@ -215,6 +229,10 @@ GET /api/orders/{orderId}
 
 ```
 HSEGozon/
+├── frontend/                          # Веб-интерфейс
+│   ├── index.html                    # Главная страница
+│   ├── style.css                     # Стили
+│   └── app.js                         # JavaScript логика
 ├── src/
 │   ├── HSEGozon.ApiGateway/
 │   │   ├── Api/

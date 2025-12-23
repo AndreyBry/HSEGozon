@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSEGozon - Система заказов и платежей</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛒 HSEGozon</h1>
+            <p>Система управления заказами и платежами</p>
+        </header>
+
+        <div class="user-section">
+            <h2>Пользователь</h2>
+            <div class="form-group">
+                <label for="userId">User ID (GUID):</label>
+                <input type="text" id="userId" placeholder="123e4567-e89b-12d3-a456-426614174000" value="123e4567-e89b-12d3-a456-426614174000">
+                <button onclick="generateUserId()">Сгенерировать новый</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('accounts')">Счета</button>
+            <button class="tab-button" onclick="showTab('orders')">Заказы</button>
+        </div>
+
+        <div id="accounts-tab" class="tab-content active">
+            <div class="section">
+                <h2>Управление счетом</h2>
+                
+                <div class="card">
+                    <h3>Создать счет</h3>
+                    <button onclick="createAccount()" class="btn btn-primary">Создать счет</button>
+                    <div id="createAccountResult" class="result"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Пополнить счет</h3>
+                    <div class="form-group">
+                        <label for="topUpAmount">Сумма:</label>
+                        <input type="number" id="topUpAmount" step="0.01" min="0.01" value="1000" placeholder="1000.00">
+                    </div>
+                    <button onclick="topUpAccount()" class="btn btn-primary">Пополнить</button>
+                    <div id="topUpResult" class="result"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Баланс счета</h3>
+                    <button onclick="getAccount()" class="btn btn-secondary">Обновить баланс</button>
+                    <div id="accountInfo" class="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="orders-tab" class="tab-content">
+            <div class="section">
+                <h2>Управление заказами</h2>
+                
+                <div class="card">
+                    <h3>Создать заказ</h3>
+                    <div class="form-group">
+                        <label for="orderAmount">Сумма:</label>
+                        <input type="number" id="orderAmount" step="0.01" min="0.01" value="500" placeholder="500.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="orderDescription">Описание:</label>
+                        <input type="text" id="orderDescription" value="Ноутбук ASUS ROG Strix" placeholder="Описание заказа">
+                    </div>
+                    <button onclick="createOrder()" class="btn btn-primary">Создать заказ</button>
+                    <div id="createOrderResult" class="result"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Мои заказы</h3>
+                    <button onclick="getOrders()" class="btn btn-secondary">Обновить список</button>
+                    <div id="ordersList" class="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="messages" class="messages"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
